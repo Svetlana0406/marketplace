@@ -11,7 +11,7 @@ public class MarketService {
     private Map<Integer, Order> orders;
 
     public MarketService() {
-        orderCounter = 0;
+        orderCounter = 1;
         orders = new HashMap<>();
     }
 
@@ -23,8 +23,9 @@ public class MarketService {
         return order.getId();
     }
 
-    public void addItemToOrder(Item item, int orderId ){
+    public boolean addItemToOrder(Item item, int orderId ){
         orders.get(orderId).addItem(item);
+        return true;
     }
 
     public double applyDiscountForOrder(int orderId, PromoCodes codes){
